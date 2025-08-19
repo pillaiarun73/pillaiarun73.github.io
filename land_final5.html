@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Three Section Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Section Heights - Configurable */
+    #topSection {
+      height: 100px;
+      background-color: #002f6c; /* Dark Blue */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #middleSection {
+      height: 620px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #ccc;
+    }
+
+    #bottomSection {
+      height: 600px;
+      background-color: #f1f1f1;
+    }
+
+    /* Buttons Styling */
+    .nav-buttons {
+      display: flex;
+      gap: 50px;
+    }
+
+    .nav-buttons button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      background-color: #ffffff;
+      color: #002f6c;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-buttons button:hover {
+      background-color: #0056b3;
+      color: #ffffff;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Section -->
+  <div id="topSection">
+    <div class="nav-buttons">
+      <button onclick="loadMiddle('land1.html')">Home</button>
+      <button onclick="loadMiddle('https://sites.google.com')">About</button>
+      <button onclick="loadMiddle('media1.php')">Media 1</button>
+      <button onclick="loadMiddle('media2.php')">Media 2</button>
+    </div>
+  </div>
+
+  <!-- Middle Section -->
+  <div id="middleSection">
+    <iframe id="middleFrame" src="land1.html"></iframe>
+  </div>
+
+  <!-- Bottom Section -->
+  <div id="bottomSection">
+    <iframe src="footer.html"></iframe>
+  </div>
+
+  <script>
+    function loadMiddle(url) {
+      const middleFrame = document.getElementById('middleFrame');
+      
+      // If it's an external site (starts with http), set full URL directly
+      if (url.startsWith('http')) {
+        middleFrame.src = url;
+      } else {
+        middleFrame.src = url;
+      }
+    }
+  </script>
+
+</body>
+</html>

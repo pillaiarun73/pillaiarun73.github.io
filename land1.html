@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Picture Buttons Page</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 75%;
+      background: url('images/school_bg.png') ;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      height: 100vh;
+    }
+
+    .pic-button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .pic-button img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      //border-radius: 10px;
+      //border: 2px solid white;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .pic-button:hover img {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255,255,255,0.7);
+    }
+
+    .pic-label {
+      margin-top: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      text-shadow: 1px 1px 4px #000;
+    }
+  </style>
+</head>
+<body>
+
+  <!--div class="button-container">
+    <button class="pic-button" onclick="alert('Events')">
+      <img src="images/events.png" alt="Events">
+      <div class="pic-label">Events</div>
+    </button>
+    <button class="pic-button" onclick="alert('Activities')">
+      <img src="images/activities.png" alt="Activities">
+      <div class="pic-label">Activities</div>
+    </button>
+    <button class="pic-button" onclick="alert('Media')">
+      <img src="images/media.png" alt="Media">
+      <div class="pic-label">Media</div>
+    </button>
+    <button class="pic-button" onclick="alert('Projects')">
+      <img src="images/projects.png" alt="Projects">
+      <div class="pic-label">Projects</div>
+    </button>
+     </div --!>
+
+</body>
+</html>
