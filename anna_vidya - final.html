@@ -51,8 +51,7 @@
     }
 
     .nav-buttons button::after {
-     /* content: '  ➤'; */
-	content: '';
+      content: '';
       font-size: 3rem;
       position: absolute;
       right: 5px;
@@ -64,23 +63,23 @@
       max-width: 1300px;
       padding: 60px 40px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column; /* Stack image and content vertically */
       align-items: center;
       margin: auto;
+      text-align: center;
     }
 
     section img {
       width: 250px;
       height: auto;
-      margin: 2px;
+      margin-bottom: 20px;
       border-radius: 5px;
     }
 
     .content {
-      flex: 1;
-      min-width: 320px;
-      margin: 20px;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .content h2 {
@@ -120,15 +119,12 @@
       background: #0056b3;
     }
 
-    /* Highlight for numbers and currency */
     .highlight {
       color: red;
-	 font-size: 2rem;
-
+      font-size: 2rem;
       font-weight: bold;
     }
 
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -166,7 +162,6 @@
       font-size: 1.2rem;
     }
 
-    /* Bold, visible placeholders */
     input::placeholder,
     textarea::placeholder {
       font-size: 1.4rem;
@@ -222,24 +217,24 @@
       <p>Empowering children through quality education and learning support.</p>
       <ul>
         <h2 style="color:red;">Total Students: <span class="highlight">202</span> (Girls: <span class="highlight">103</span>, Boys: <span class="highlight">99</span>)</h2>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-          <span   style="font-size: 35px;">Annual Fee per Student: <span class="highlight">₹38,000 P.A.</span></span>
-	<label><input type="radio" name="tax_books" checked> 80G</label>
+        <div style="margin-bottom: 10px;">
+          <span style="font-size: 35px;">Annual Fee per Student: <span class="highlight">₹38,000 P.A.</span></span>
+          <label><input type="radio" name="tax_books" checked> 80G</label>
           <button class="donate-btn" onclick="openForm()">Donate</button>
         </div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-          <span   style="font-size: 35px;">Books & Learning Materials: <span class="highlight">₹6,000 P.A.</span></span>
-	<label><input type="radio" name="tax_books" checked> 80G</label>
+        <div style="margin-bottom: 10px;">
+          <span style="font-size: 35px;">Books & Learning Materials: <span class="highlight">₹6,000 P.A.</span></span>
+          <label><input type="radio" name="tax_books" checked> 80G</label>
           <button class="donate-btn" onclick="openForm()">Donate</button>
         </div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-          <span   style="font-size: 35px;">Total per Student per Year: <span class="highlight">₹44,000 P.A.</span></span>
-	<label><input type="radio" name="tax_books" checked> 80G</label>
+        <div style="margin-bottom: 10px;">
+          <span style="font-size: 35px;">Total per Student per Year: <span class="highlight">₹44,000 P.A.</span></span>
+          <label><input type="radio" name="tax_books" checked> 80G</label>
           <button class="donate-btn" onclick="openForm()">Donate</button>
         </div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-          <span   style="font-size: 35px;">Annual Support Needed: <span class="highlight">₹88,00,000</span></span>
-	<label><input type="radio" name="tax_books" checked> 80G</label>
+        <div style="margin-bottom: 10px;">
+          <span style="font-size: 35px;">Annual Support Needed: <span class="highlight">₹88,00,000</span></span>
+          <label><input type="radio" name="tax_books" checked> 80G</label>
           <button class="donate-btn" onclick="openForm()">Donate</button>
         </div>
       </ul>
@@ -256,29 +251,29 @@
       <p>Providing nutritious meals to every student, every day.</p>
       <ul>
         <h2 style="color:red;">Total no of students <span class="highlight">850</span></h2>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-          <span   style="font-size: 35px;"><span class="highlight">250</span> working days <span class="highlight"></br>Rs 25</span> per plate</span>
-	<label><input type="radio" name="tax_books" checked> 80G</label>
+        <div style="margin-bottom: 10px;">
+          <span style="font-size: 35px;"><span class="highlight">250</span> working days <span class="highlight"><br>Rs 25</span> per plate</span>
+          <label><input type="radio" name="tax_books" checked> 80G</label>
           <button class="donate-btn" onclick="openForm()">Donate</button>
         </div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-          <span   style="font-size: 35px;"><span class="highlight">850</span> Students Cost <span class="highlight"></br>Rs 54 Lakh P.A</span></span>
-	<label><input type="radio" name="tax_books" checked> 80G</label>
+        <div style="margin-bottom: 10px;">
+          <span style="font-size: 35px;"><span class="highlight">850</span> Students Cost <span class="highlight"><br>Rs 54 Lakh P.A</span></span>
+          <label><input type="radio" name="tax_books" checked> 80G</label>
           <button class="donate-btn" onclick="openForm()">Donate</button>
         </div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-          <span   style="font-size: 35px;">Every <span class="highlight">100</span> Students <span class="highlight"></br>Rs 6.5 Lakh P.A</span></span>
-	<label><input type="radio" name="tax_books" checked> 80G</label>
+        <div style="margin-bottom: 10px;">
+          <span style="font-size: 35px;">Every <span class="highlight">100</span> Students <span class="highlight"><br>Rs 6.5 Lakh P.A</span></span>
+          <label><input type="radio" name="tax_books" checked> 80G</label>
           <button class="donate-btn" onclick="openForm()">Donate</button>
         </div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-          <span   style="font-size: 35px;">Feed <span class="highlight">100</span> Students per month <span class="highlight">Rs 50000</span></span>
-	<label><input type="radio" name="tax_books" checked> 80G</label>
+        <div style="margin-bottom: 10px;">
+          <span style="font-size: 35px;">Feed <span class="highlight">100</span> Students per month <span class="highlight">Rs 50000</span></span>
+          <label><input type="radio" name="tax_books" checked> 80G</label>
           <button class="donate-btn" onclick="openForm()">Donate</button>
         </div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-          <span   style="font-size: 35px;">Feed <span class="highlight">100</span> Students per day <span class="highlight">Rs 2500</span></span>
-	<label><input type="radio" name="tax_books" checked> 80G</label>
+        <div style="margin-bottom: 10px;">
+          <span style="font-size: 35px;">Feed <span class="highlight">100</span> Students per day <span class="highlight">Rs 2500</span></span>
+          <label><input type="radio" name="tax_books" checked> 80G</label>
           <button class="donate-btn" onclick="openForm()">Donate</button>
         </div>
       </ul>
