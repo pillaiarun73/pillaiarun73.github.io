@@ -110,7 +110,7 @@
     font-weight: bold;
   }
 
-  /* Modal positioned near clicked button */
+  /* Modal centered horizontally */
   .modal {
     display: none;
     position: absolute;
@@ -175,20 +175,28 @@
     <h2 style="font-size: 50px;">Vidya Daan</h2>
     <p>Empowering children through quality education and learning support.</p>
     <div>
-      <span style="font-size: 45px;">Annual Fee per Student: <span class="highlight"><br>₹38,000 P.A.</span></span>
-      <button class="donate-btn" onclick="openForm(event)">Donate</button>
+      <span style="font-size: 45px;">Annual Fee per Student: <span class="highlight"><br>₹38,000</span></span>
+<label><input type="radio" name="tax_tuition" checked> 80G</label>
+
+      <button class="donate-btn" onclick="openForm(event, 38000)">Donate</button>
     </div>
     <div>
-      <span style="font-size: 45px;">Books & Learning Materials: <span class="highlight"><br>₹6,000 P.A.</span></span>
-      <button class="donate-btn" onclick="openForm(event)">Donate</button>
+      <span style="font-size: 45px;">Books & Learning Materials: <span class="highlight"><br>₹6,000</span></span>
+<label><input type="radio" name="tax_tuition" checked> 80G</label>
+
+      <button class="donate-btn" onclick="openForm(event, 6000)">Donate</button>
     </div>
     <div>
-      <span style="font-size: 45px;">Total per Student per Year: <span class="highlight"><br>₹44,000 P.A.</span></span>
-      <button class="donate-btn" onclick="openForm(event)">Donate</button>
+      <span style="font-size: 45px;">Total per Student per Year: <span class="highlight"><br>₹44,000</span></span>
+<label><input type="radio" name="tax_tuition" checked> 80G</label>
+
+      <button class="donate-btn" onclick="openForm(event, 44000)">Donate</button>
     </div>
     <div>
-      <span style="font-size: 45px;">Annual Support Needed: <span class="highlight"><br>₹88,00,000</span></span>
-      <button class="donate-btn" onclick="openForm(event)">Donate</button>
+      <span style="font-size: 45px;">Annual Support Needed: <span class="highlight"><br>₹8800000</span></span>
+<label><input type="radio" name="tax_tuition" checked> 80G</label>
+
+      <button class="donate-btn" onclick="openForm(event, 8800000)">Donate</button>
     </div>
   </div>
 </section>
@@ -198,29 +206,40 @@
 <!-- Anna Daan Section -->
 <section id="anna-daan">
   <div class="content">
-<img src="anna_dan.png" alt="Meal Support">
+    <img src="anna_dan.png" alt="Meal Support">
     <h2 style="font-size: 50px;">Anna Daan</h2>
     <p>Providing nutritious meals to every student, every day.</p>
     <div>
-      <span style="font-size: 45px;"><span class="highlight">250</span> working days <span class="highlight"><br>Rs 25</span> per plate</span>
-      <button class="donate-btn" onclick="openForm(event)">Donate</button>
-    </div>
+      <span style="font-size: 45px;"><span class="highlight">250</span> working days <span class="highlight">Rs 25</span> per plate<br><br></span>
+         </div>
+
     <div>
       <span style="font-size: 45px;"><span class="highlight">850</span> Students Cost <span class="highlight"><br>Rs 54 Lakh P.A</span></span>
-      <button class="donate-btn" onclick="openForm(event)">Donate</button>
+<label><input type="radio" name="tax_tuition" checked> 80G</label>
+
+      <button class="donate-btn" onclick="openForm(event,5400000)">Donate</button>
     </div>
     <div>
       <span style="font-size: 45px;">Every <span class="highlight">100</span> Students <span class="highlight"><br>Rs 6.5 Lakh P.A</span></span>
-      <button class="donate-btn" onclick="openForm(event)">Donate</button>
+<label><input type="radio" name="tax_tuition" checked> 80G</label>
+      <button class="donate-btn" onclick="openForm(event,650000)">
+
+Donate</button>
+    </div>
+	<div>
+      <span style="font-size: 45px;">Feed <span class="highlight">100</span> Students <br>per day <span class="highlight">Rs 2500</span></span>
+<label><input type="radio" name="tax_tuition" checked> 80G</label>
+
+      <button class="donate-btn" onclick="openForm(event,2500)">Donate</button>
     </div>
     <div>
       <span style="font-size: 45px;">Feed <span class="highlight">100</span> Students <br>per month <span class="highlight">Rs 50000</span></span>
-      <button class="donate-btn" onclick="openForm(event)">Donate</button>
+<label><input type="radio" name="tax_tuition" checked> 80G</label>
+
+      <button class="donate-btn" onclick="openForm(event,50000)">Donate</button>
     </div>
-    <div>
-      <span style="font-size: 45px;">Feed <span class="highlight">100</span> Students <br>per day <span class="highlight">Rs 2500</span></span>
-      <button class="donate-btn" onclick="openForm(event)">Donate</button>
-    </div>
+    
+
   </div>
 </section>
 
@@ -243,12 +262,19 @@
 
 <script>
   const modal = document.getElementById('donationModal');
+  const amountField = document.getElementById('amount');
 
-  function openForm(event) {
+  function openForm(event, amount) {
     const button = event.target;
     const rect = button.getBoundingClientRect();
+
+    // Center horizontally
+    modal.style.left = (window.innerWidth / 2 - modal.offsetWidth / 2) + 'px';
     modal.style.top = (window.scrollY + rect.top + button.offsetHeight + 10) + 'px';
-    modal.style.left = rect.left + 'px';
+
+    // Set default amount
+    amountField.value = amount;
+
     modal.style.display = 'block';
   }
 
