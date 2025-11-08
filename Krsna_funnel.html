@@ -27,7 +27,7 @@
 
 	#ThirdSection{
     /*  height: 2800px; */
- 	height: 3600px;
+ 	height: 1500px;
       background-color: #ffffff;
       border-bottom: 1px solid #ccc;
     }
@@ -103,7 +103,7 @@
   <!-- Top Section -->
   <div id="topSection">
     <div class="nav-buttons">
-      <button onclick="loadMiddle('https://www.bvnsmayapur.com')">Home</button>
+      <button onclick="loadMiddle('https://www.bvnsmayapur.com')">Homes</button>
       <button onclick="loadMiddle('https://sites.google.com')">Contact</button>
       <button onclick="loadMiddle('media1.php')">About</button>
          </div>
@@ -111,16 +111,17 @@
 
   <!-- Middle Section -->
   <div id="middleSection">
-    <iframe id="middleFrame" src="land1.html"></iframe>
+<iframe src="land1.php"></iframe>
+ 
   </div>
 
 <div id="ThirdSection">
-    <iframe  src="anna_vidya - final.html"></iframe>
+    <?php include "wanna_vidya - final.php" ?>  </iframe>
   </div>	
 
   <!-- Bottom Section -->
   <div id="bottomSection">
-    <iframe src="footer.html"></iframe>
+    <?php include "footer.php" ?> 
   </div>
 
   <script>
