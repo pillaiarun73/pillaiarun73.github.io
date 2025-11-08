@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anna Daan & Vidya Daan</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cinzel:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- External stylesheet (moved from inline styles) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Support Our Noble Causes</h1>
+    <div class="nav-buttons">
+      <button onclick="scrollToSection('anna-daan')">Anna Daan</button>
+      <button onclick="scrollToSection('vidya-daan')">Vidya Daan</button>
+    </div>
+  </header>
+
+  <!-- Vidya Daan -->
+  <section id="vidya-daan">
+    <div class="content">
+      <h2>Vidya Daan</h2>
+      <p>Empowering children through quality education and learning support.</p>
+
+      <div class="card">
+        <div class="row">
+          <div class="label">Annual Fee per Student: <span class="highlight">₹38,000</span></div>
+          <button class="donate-btn" onclick="openForm(event, 38000, 'Vidya Daan – Annual Fee')">Donate</button>
+        </div>
+        <div class="row">
+          <div class="label">Books & Learning Materials: <span class="highlight">₹6,000</span></div>
+          <button class="donate-btn" onclick="openForm(event, 6000, 'Vidya Daan – Books & Materials')">Donate</button>
+        </div>
+        <div class="row">
+          <div class="label">Total per Student per Year: <span class="highlight">₹44,000</span></div>
+          <button class="donate-btn" onclick="openForm(event, 44000, 'Vidya Daan – Total per Student (Year)')">Donate</button>
+        </div>
+        <div class="row">
+          <div class="label">Annual Support Needed: <span class="highlight">₹88,00,000</span></div>
+          <button class="donate-btn" onclick="openForm(event, 8800000, 'Vidya Daan – Annual Support Needed')">Donate</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Anna Daan -->
+  <section id="anna-daan">
+    <div class="content">
+      <h2>Anna Daan</h2>
+      <p>Providing nutritious meals to every student, every day.</p>
+
+      <div class="card">
+        <div class="row">
+          <div class="label">Per Plate: <span class="highlight">₹25</span></div>
+          <button class="donate-btn" onclick="openForm(event, 25, 'Anna Daan – Per Plate')">Donate</button>
+        </div>
+        <div class="row">
+          <div class="label">850 Students / Year: <span class="highlight">₹54,00,000</span></div>
+          <button class="donate-btn" onclick="openForm(event, 5400000, 'Anna Daan – 850 Students/Year')">Donate</button>
+        </div>
+        <div class="row">
+          <div class="label">Every 100 Students (Year): <span class="highlight">₹6,50,000</span></div>
+          <button class="donate-btn" onclick="openForm(event, 650000, 'Anna Daan – Every 100 Students (Year)')">Donate</button>
+        </div>
+        <div class="row">
+          <div class="label">Feed 100 Students / Day: <span class="highlight">₹2,500</span></div>
+          <button class="donate-btn" onclick="openForm(event, 2500, 'Anna Daan – Feed 100 Students/Day')">Donate</button>
+        </div>
+        <div class="row">
+          <div class="label">Feed 100 Students / Month: <span class="highlight">₹50,000</span></div>
+          <button class="donate-btn" onclick="openForm(event, 50000, 'Anna Daan – Feed 100 Students/Month')">Donate</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donation Modal -->
+  <div id="donationModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Donate Now</h3>
+        <button class="close" onclick="closeForm()" aria-label="Close">&times;</button>
+      </div>
+      <form id="donationForm" method="post" action="donation.php">
+        <input type="text" id="fullName" name="fullName"  placeholder="Full Name" required>
+        <input type="email" id="email" name="email"   placeholder="Email" required>
+        <input type="text" id="mobile" name="mobile"   placeholder="Mobile Number" inputmode="tel" pattern="[0-9+\-\s]{7,}" required>
+        <input type="text" id="pan"  name="pan"  placeholder="PAN Number">
+        <input type="number" id="amount" name="amount"   placeholder="Donation Amount ₹" required>
+        <textarea id="message" placeholder="Purpose / Message"></textarea>
+        <button type="submit" class="submit-btn">Submit Donation</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // --------- Helpers ----------
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // --------- Modal logic ----------
+    const modal = document.getElementById('donationModal');
+    const amountField = document.getElementById('amount');
+    const messageField = document.getElementById('message');
+
+    function positionModalInSection(sectionEl) {
+      // Temporarily show to measure size (avoid offsetWidth/Height = 0)
+      const prevDisplay = modal.style.display;
+      const prevVisibility = modal.style.visibility;
+      modal.style.visibility = 'hidden';
+      modal.style.display = 'block';
+
+      const sectionRect = sectionEl.getBoundingClientRect();
+      const modalW = modal.offsetWidth;
+      const modalH = modal.offsetHeight;
+
+      // Horizontal: center on page
+      let left = window.scrollX + (document.documentElement.clientWidth / 2) - (modalW / 2);
+      // Vertical: center within the section
+      let top = window.scrollY + sectionRect.top + (sectionRect.height / 2) - (modalH / 2);
+
+      // Keep some padding from edges
+      left = Math.max(12, left);
+      top = Math.max(window.scrollY + 12, top);
+
+      modal.style.left = left + 'px';
+      modal.style.top = top + 'px';
+
+      // Restore visibility state
+      modal.style.visibility = prevVisibility || 'visible';
+      modal.style.display = prevDisplay || 'block';
+    }
+
+    function openForm(event, amount, purpose) {
+      const section = event.currentTarget.closest('section');
+
+      // Pre-fill fields
+      amountField.value = amount ?? '';
+      messageField.value = purpose ?? '';
+
+      // Show modal and position it in the clicked section
+      modal.style.display = 'block';
+      modal.setAttribute('aria-hidden', 'false');
+      positionModalInSection(section);
+
+      // Close on outside click
+      setTimeout(() => {
+        document.addEventListener('mousedown', onOutsideClick);
+        document.addEventListener('keydown', onEsc, { once: true });
+        window.addEventListener('resize', onReposition);
+        window.addEventListener('scroll', onReposition, { passive: true });
+      }, 0);
+
+      function onReposition() { positionModalInSection(section); }
+      function onEsc(e) { if (e.key === 'Escape') closeForm(); }
+      function onOutsideClick(e) {
+        if (!modal.contains(e.target)) { closeForm(); }
+      }
+
+      // Save listeners so we can remove them on close
+      modal._cleanup = () => {
+        document.removeEventListener('mousedown', onOutsideClick);
+        window.removeEventListener('resize', onReposition);
+        window.removeEventListener('scroll', onReposition);
+      };
+    }
+
+    function closeForm() {
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
+      if (typeof modal._cleanup === 'function') modal._cleanup();
+    }
+
+    // --------- Submit / POST to Node backend ----------
+    // (Your original code had a comment here — keep your existing submission handling as needed)
+  </script>
+</body>
+</html>
